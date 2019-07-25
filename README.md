@@ -12,8 +12,8 @@ year = {2018}
 
 
 
-
-Requiremnets tensorflow and python
+------------------------------------------------------------------------------------------------------------------------------------
+Requiremnets python 2.7
 
 easydict==1.7
 
@@ -41,9 +41,11 @@ tensorflow==1.5.0
 
 tensorflow-tensorboard==1.5.1
 
+------------------------------------------------------------------------------------------------------------------------------------
+
 In order to train the model run 
 
-1)social_train.py, you can identify which data to train on in the file social_utils.py
+1) social_train.py, you can identify which data to train on in the file social_utils.py
 
 
 2) Saved model will be in save irectory
