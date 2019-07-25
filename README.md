@@ -1,5 +1,5 @@
 
-This is work is available for research purposes. If you are using this code for your work, please cite the following paper
+This work is available for research purposes. If you are using this code for your work, please cite the following paper
 
 @InProceedings{Hasan_2018_CVPR,
 author = {Hasan, Irtiza and Setti, Francesco and Tsesmelis, Theodore and Del Bue, Alessio and Galasso, Fabio and Cristani, Marco},
