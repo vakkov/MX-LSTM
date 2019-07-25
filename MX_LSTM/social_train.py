@@ -5,7 +5,7 @@ import time
 import pickle
 import ipdb
 
-from social_model import SocialModel
+from logchol_social_model import LogCholSocialModel
 from social_utils import SocialDataLoader
 from grid import getSequenceGridMask
 
@@ -33,7 +33,7 @@ def main():
     parser.add_argument('--num_epochs', type=int, default=50,
                         help='number of epochs')
     # Frequency at which the model should be saved parameter
-    parser.add_argument('--save_every', type=int, default=200,
+    parser.add_argument('--save_every', type=int, default=50,
                         help='save frequency')
     # TODO: (resolve) Clipping gradients for now. No idea whether we should
     # Gradient value at which it should be clipped
@@ -59,7 +59,7 @@ def main():
     parser.add_argument('--grid_size', type=int, default=4,
                         help='Grid size of the social grid')
     # Maximum number of pedestrians to be considered
-    parser.add_argument('--maxNumPeds', type=int, default=70,
+    parser.add_argument('--maxNumPeds', type=int, default=75,
                         help='Maximum Number of Pedestrians')
     # The leave out dataset
     parser.add_argument('--leaveDataset', type=int, default=3,
@@ -96,7 +96,7 @@ def train(args):
         pickle.dump(args, f)
 
     # Create a SocialModel object with the arguments
-    model = SocialModel(args)
+    model = LogCholSocialModel(args)
 
     config = tf.ConfigProto()
     config.gpu_options.allow_growth=True
@@ -171,7 +171,7 @@ def train(args):
 
             loss_epoch /= data_loader.num_batches
             # log_file_curve.write(str(e)+','+str(loss_epoch)+',')
-            # print '*****************'
+            print '*****************'
 
             # Validation
             # data_loader.reset_batch_pointer(valid=True)
