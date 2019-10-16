@@ -1,11 +1,14 @@
 allSets={'zara01','zara02','stu03','tc'};
-datasets=allSets{1};
+datasetToPick=3;
+datasets=allSets{datasetToPick};
 
 addpath('dataFiles')
 addpath('utils')
-pythonOutputFileName='z1_new_bencmark.mat'; % saved outfilename
 
 
+allOutputFileName={'z1_benchmark_mx_lstm.mat', 'z2_benchmark_mx_lstm.mat','ucy_benchmark_mx_lstm.mat'}; % saved outfilename
+
+pythonOutputFileName = allOutputFileName{datasetToPick};
 if strcmp(datasets,'zara01')
     addpath('/export/work/i.hasan/LSTM_experiments/Social_LSTM/social_lstm/VisualizeUtils/frames_zara01/')
     load(pythonOutputFileName)
@@ -38,7 +41,7 @@ elseif strcmp(datasets,'stu03')
     fileSaveName='ucy_social_lstm.mat';
     normParams.sig(1)=sX;normParams.sig(2)=sY;normParams.mu(1)=deltaX;normParams.mu(2)=deltaY;
 end
-genVisualization=1;
+genVisualization=0;
 counter=1;
 
 FADErr=[];
@@ -76,3 +79,4 @@ for ii=1:size(data,1)
 end
 mean(MADErr)
 mean(FADErr)
+
